@@ -204,11 +204,11 @@ def evaluate_prompt(
             result = evaluate_prompt_on_example(prompt_template, example, llm)
 
             if result["answer"]:
-                time.sleep(8)  # Rate limit: Gemini free tier
+                time.sleep(15)  # Rate limit: Gemini free tier (20 req/min)
                 f1 = evaluate_f1_score(result["question"], result["answer"], result["reference"])
-                time.sleep(8)
+                time.sleep(15)
                 clarity = evaluate_clarity(result["question"], result["answer"], result["reference"])
-                time.sleep(8)
+                time.sleep(15)
                 precision = evaluate_precision(result["question"], result["answer"], result["reference"])
 
                 f1_scores.append(f1["score"])

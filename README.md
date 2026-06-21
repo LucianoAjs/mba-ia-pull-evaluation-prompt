@@ -63,6 +63,18 @@ A persona inclui expertise detalhada em: análise e classificação de bugs, cri
 
 ## Resultados Finais
 
+### Resultados da Avaliação (Parcial — 4 primeiros exemplos)
+
+Resultados obtidos nos 4 primeiros exemplos avaliados com `gemini-2.5-flash`:
+
+| Exemplo | F1-Score | Clarity | Precision |
+|---------|----------|---------|-----------|
+| 1       | 0.76     | 0.95    | 0.92      |
+| 2       | 0.93     | 0.95    | 0.98      |
+| 3       | 0.98     | 0.95    | 1.00      |
+| 4       | 0.78     | 0.95    | 0.93      |
+| **Média (parcial)** | **0.86** | **0.95** | **0.96** |
+
 ### Tabela Comparativa: v1 vs v2
 
 | Métrica | v1 (Ruim) | v2 (Otimizado) | Melhoria |
@@ -73,11 +85,14 @@ A persona inclui expertise detalhada em: análise e classificação de bugs, cri
 | Clarity | ~0.50 | ≥ 0.90 | +80% |
 | Precision | ~0.46 | ≥ 0.90 | +96% |
 
-> **Nota:** Os valores v1 são estimados com base nos exemplos do desafio. Os valores v2 devem ser confirmados após execução do `evaluate.py`.
+> **Nota:** Os valores v1 são estimados com base nos exemplos do desafio. Os valores v2 são parciais (4/15 exemplos avaliados) devido ao rate limit do Gemini free tier (20 req/dia). Execute `python src/evaluate.py` para obter os resultados completos.
 
 ### Dashboard do LangSmith
 
-> **Nota:** Após executar `python src/evaluate.py`, adicione aqui o link público do seu dashboard do LangSmith e screenshots das avaliações com as notas atingidas.
+- **Prompt público:** [lucksanjos/bug_to_user_story_v2](https://smith.langchain.com/hub/lucksanjos/bug_to_user_story_v2)
+- **Projeto de avaliação:** `prompt-optimization-challenge-resolved`
+
+> **Nota sobre Rate Limiting:** O Gemini free tier possui limite de 20 req/dia para `gemini-2.5-flash`. A avaliação completa (15 exemplos × 4 chamadas = 60+ requests) requer múltiplos dias no free tier ou plano pago.
 
 ---
 
