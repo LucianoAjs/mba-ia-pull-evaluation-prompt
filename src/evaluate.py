@@ -20,6 +20,7 @@ Configure o provider no arquivo .env através da variável LLM_PROVIDER.
 import os
 import sys
 import json
+import time
 from typing import List, Dict, Any
 from pathlib import Path
 from dotenv import load_dotenv
@@ -203,8 +204,11 @@ def evaluate_prompt(
             result = evaluate_prompt_on_example(prompt_template, example, llm)
 
             if result["answer"]:
+                time.sleep(8)  # Rate limit: Gemini free tier
                 f1 = evaluate_f1_score(result["question"], result["answer"], result["reference"])
+                time.sleep(8)
                 clarity = evaluate_clarity(result["question"], result["answer"], result["reference"])
+                time.sleep(8)
                 precision = evaluate_precision(result["question"], result["answer"], result["reference"])
 
                 f1_scores.append(f1["score"])
